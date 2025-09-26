@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet the Speakers - Hack Egerton 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <img src="assets/logo.png" alt="Egerton University" class="h-8 w-auto">
+                    <span class="text-xl font-bold text-gray-900">Hack Egerton</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-[#ff4db8] transition-colors font-medium">Home</a>
+                    <a href="about.html" class="text-gray-600 hover:text-[#ff4db8] transition-colors font-medium">About</a>
+                    <a href="tracks.html" class="text-gray-600 hover:text-[#ff4db8] transition-colors font-medium">Tracks</a>
+                    <a href="timeline.html" class="text-gray-600 hover:text-[#ff4db8] transition-colors font-medium">Timeline</a>
+                    <a href="prizes-sponsors.html" class="text-gray-600 hover:text-[#ff4db8] transition-colors font-medium">Prizes & Sponsors</a>
+                    <a href="speakers.html" class="text-[#ff4db8] font-semibold">Speakers</a>
+                    <a href="https://forms.gle/your-registration-form" target="_blank" class="bg-[#ff4db8] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#e63a9f] transition-colors">
+                        Register Now
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="text-gray-600 hover:text-[#ff4db8] transition-colors font-medium">Home</a>
+                    <a href="about.html" class="text-gray-600 hover:text-[#ff4db8] transition-colors font-medium">About</a>
+                    <a href="tracks.html" class="text-gray-600 hover:text-[#ff4db8] transition-colors font-medium">Tracks</a>
+                    <a href="timeline.html" class="text-gray-600 hover:text-[#ff4db8] transition-colors font-medium">Timeline</a>
+                    <a href="prizes-sponsors.html" class="text-gray-600 hover:text-[#ff4db8] transition-colors font-medium">Prizes & Sponsors</a>
+                    <a href="speakers.html" class="text-[#ff4db8] font-semibold">Speakers</a>
+                    <a href="https://forms.gle/your-registration-form" target="_blank" class="bg-[#ff4db8] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#e63a9f] transition-colors text-center">
+                        Register Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <!-- Page Title -->
+        <div class="text-center mb-16">
+            <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-6">
+                Meet the <span class="text-[#ff4db8]">Speakers</span>
+            </h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Learn from industry experts, thought leaders, and innovators who are shaping the future of technology.
+            </p>
+        </div>
+
+        <!-- Speaker Profiles Section - Clean Team Layout -->
+        <section class="mb-16 bg-white py-12">
+            <div class="max-w-6xl mx-auto px-6">
+                <!-- Speakers Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Speaker 1: Deon Orina -->
+                    <div class="text-center group">
+                        <div class="relative mb-4">
+                            <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-gray-200 group-hover:border-[#ff4db8] transition-colors duration-300">
+                                <img src="speakers/deon.jpg" alt="Deon Orina" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-1">
+                            Deon Orina
+                        </h3>
+                        <p class="text-[#ff4db8] font-semibold">
+                            Founder, Ardena
+                        </p>
+                        <p class="text-gray-600 text-sm mt-1">
+                            AI Engineer
+                        </p>
+                    </div>
+
+                    <!-- Speaker 2: Valdone Ojay -->
+                    <div class="text-center group">
+                        <div class="relative mb-4">
+                            <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-gray-200 group-hover:border-[#ff4db8] transition-colors duration-300">
+                                <img src="speakers/ojay.jpg" alt="Valdone Ojay" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-1">
+                            Valdone Ojay
+                        </h3>
+                        <p class="text-[#ff4db8] font-semibold">
+                            Stellar East Africa Ambassador
+                        </p>
+                        <p class="text-gray-600 text-sm mt-1">
+                            Smart Contract Developer
+                        </p>
+                    </div>
+
+                    <!-- Speaker 3: Sarah Kimani -->
+                    <div class="text-center group">
+                        <div class="relative mb-4">
+                            <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-[#ff4db8] to-[#e63a9f] flex items-center justify-center border-4 border-gray-200 group-hover:border-[#ff4db8] transition-colors duration-300">
+                                <span class="text-white font-bold text-2xl">SK</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-1">
+                            Sarah Kimani
+                        </h3>
+                        <p class="text-[#ff4db8] font-semibold">
+                            Tech Lead, Safaricom
+                        </p>
+                        <p class="text-gray-600 text-sm mt-1">
+                            Mobile Innovation
+                        </p>
+                    </div>
+
+                    <!-- Speaker 4: James Mwangi -->
+                    <div class="text-center group">
+                        <div class="relative mb-4">
+                            <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center border-4 border-gray-200 group-hover:border-[#ff4db8] transition-colors duration-300">
+                                <span class="text-white font-bold text-2xl">JM</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-1">
+                            James Mwangi
+                        </h3>
+                        <p class="text-[#ff4db8] font-semibold">
+                            Blockchain Developer
+                        </p>
+                        <p class="text-gray-600 text-sm mt-1">
+                            Web3 Expert
+                        </p>
+                    </div>
+
+                    <!-- Speaker 5: Grace Wanjiku -->
+                    <div class="text-center group">
+                        <div class="relative mb-4">
+                            <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center border-4 border-gray-200 group-hover:border-[#ff4db8] transition-colors duration-300">
+                                <span class="text-white font-bold text-2xl">GW</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-1">
+                            Grace Wanjiku
+                        </h3>
+                        <p class="text-[#ff4db8] font-semibold">
+                            Data Scientist
+                        </p>
+                        <p class="text-gray-600 text-sm mt-1">
+                            AI & ML Specialist
+                        </p>
+                    </div>
+
+                    <!-- Speaker 6: Peter Ochieng -->
+                    <div class="text-center group">
+                        <div class="relative mb-4">
+                            <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center border-4 border-gray-200 group-hover:border-[#ff4db8] transition-colors duration-300">
+                                <span class="text-white font-bold text-2xl">PO</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-1">
+                            Peter Ochieng
+                        </h3>
+                        <p class="text-[#ff4db8] font-semibold">
+                            Startup Founder
+                        </p>
+                        <p class="text-gray-600 text-sm mt-1">
+                            AgriTech Innovation
+                        </p>
+                    </div>
+
+                    <!-- Speaker 7: Mary Akinyi -->
+                    <div class="text-center group">
+                        <div class="relative mb-4">
+                            <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center border-4 border-gray-200 group-hover:border-[#ff4db8] transition-colors duration-300">
+                                <span class="text-white font-bold text-2xl">MA</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-1">
+                            Mary Akinyi
+                        </h3>
+                        <p class="text-[#ff4db8] font-semibold">
+                            UX Designer
+                        </p>
+                        <p class="text-gray-600 text-sm mt-1">
+                            Product Innovation
+                        </p>
+                    </div>
+
+                    <!-- Speaker 8: David Kiprop -->
+                    <div class="text-center group">
+                        <div class="relative mb-4">
+                            <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center border-4 border-gray-200 group-hover:border-[#ff4db8] transition-colors duration-300">
+                                <span class="text-white font-bold text-2xl">DK</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-1">
+                            David Kiprop
+                        </h3>
+                        <p class="text-[#ff4db8] font-semibold">
+                            Cybersecurity Expert
+                        </p>
+                        <p class="text-gray-600 text-sm mt-1">
+                            Digital Security
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call-to-Action Section -->
+        <section class="text-center">
+            <div class="bg-white rounded-2xl p-12 shadow-lg max-w-2xl mx-auto">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                    Want to Speak at Hack Egerton 2025?
+                </h2>
+                <p class="text-lg text-gray-600 mb-6 max-w-xl mx-auto">
+                    Share your expertise and inspire the next generation of innovators. We're looking for passionate speakers who can motivate and educate our participants.
+                </p>
+                <p class="text-sm text-gray-500 mb-8 max-w-xl mx-auto">
+                    We will reach out to you once your application is accepted.
+                </p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfIAePFKNDohu1KOl6wPvhvHwymsx2tO6EfTpyOiti6MvRmTQ/viewform?usp=header" target="_blank" class="inline-flex items-center bg-[#ff4db8] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#e63a9f] transition-colors shadow-lg hover:shadow-xl">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                    Apply to be a Speaker
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-3">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-3">
+                <!-- Logo and Description -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-2">
+                        <img src="assets/logo.png" alt="Egerton University" class="h-6 w-auto">
+                        <span class="text-lg font-bold">Hack Egerton</span>
+                    </div>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        Empowering students to build the future through innovation and automation. Organized by EUCOSSA.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-base font-semibold mb-2">Quick Links</h3>
+                    <ul class="space-y-1">
+                        <li><a href="index.html" class="text-gray-400 hover:text-[#ff4db8] transition-colors text-xs">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-[#ff4db8] transition-colors text-xs">About</a></li>
+                        <li><a href="tracks.html" class="text-gray-400 hover:text-[#ff4db8] transition-colors text-xs">Tracks</a></li>
+                        <li><a href="timeline.html" class="text-gray-400 hover:text-[#ff4db8] transition-colors text-xs">Timeline</a></li>
+                        <li><a href="prizes-sponsors.html" class="text-gray-400 hover:text-[#ff4db8] transition-colors text-xs">Prizes & Sponsors</a></li>
+                        <li><a href="speakers.html" class="text-gray-400 hover:text-[#ff4db8] transition-colors text-xs">Speakers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Social Media -->
+                <div>
+                    <h3 class="text-base font-semibold mb-2">Connect With Us</h3>
+                    <div class="space-y-2">
+                        <a href="https://www.instagram.com/eucossake?igsh=aGg2dno4aXNobmU3" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-[#ff4db8] transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                            <span class="text-xs">@eucossake</span>
+                        </a>
+                        <a href="https://x.com/eucossake?t=hGZxxHxZDkYKaAym9ziTmw&s=09" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-[#ff4db8] transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                            <span class="text-xs">@eucossake</span>
+                        </a>
+                        <a href="mailto:eucossake@gmail.com" class="flex items-center space-x-2 text-gray-400 hover:text-[#ff4db8] transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <span class="text-xs">eucossake@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 mt-3 pt-3 text-center">
+                <p class="text-gray-400 text-xs">
+                    © 2025 Hack Egerton. All rights reserved. Organized by EUCOSSA.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for mobile menu -->
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
+
+</html>
