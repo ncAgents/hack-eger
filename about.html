@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Hack Egerton 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 15%, #f1f5f9 30%, #e2e8f0 45%, #f8fafc 60%, #f1f5f9 75%, #e2e8f0 90%, #ffffff 100%);
+            position: relative;
+        }
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(148, 163, 184, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(203, 213, 225, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(226, 232, 240, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
+    <!-- Navigation -->
+    <nav class="relative z-10 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center space-x-3">
+                <img src="assets/logo.png" alt="Egerton University" class="h-10 w-auto">
+                <span class="text-xl font-bold text-gray-800">Hack Egerton</span>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-[#ff4db8] font-medium transition-colors">Home</a>
+                <a href="about.html" class="text-[#ff4db8] font-medium">About</a>
+                <a href="tracks.html" class="text-gray-700 hover:text-[#ff4db8] font-medium transition-colors">Tracks</a>
+                <a href="timeline.html" class="text-gray-700 hover:text-[#ff4db8] font-medium transition-colors">Timeline</a>
+                <a href="prizes-sponsors.html" class="text-gray-700 hover:text-[#ff4db8] font-medium transition-colors">Prizes & Sponsors</a>
+                <a href="#register" class="bg-[#ff4db8] text-white px-6 py-2 rounded-lg font-medium hover:bg-[#e63ea6] transition-colors">Register</a>
+            </div>
+            
+            <!-- Mobile menu button -->
+            <button class="md:hidden text-gray-700" id="mobile-menu-button">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 bg-white/80 backdrop-blur-sm rounded-lg mt-2">
+                <a href="index.html" class="block px-3 py-2 text-gray-700 hover:text-[#ff4db8] font-medium">Home</a>
+                <a href="about.html" class="block px-3 py-2 text-[#ff4db8] font-medium">About</a>
+                <a href="tracks.html" class="block px-3 py-2 text-gray-700 hover:text-[#ff4db8] font-medium">Tracks</a>
+                <a href="timeline.html" class="block px-3 py-2 text-gray-700 hover:text-[#ff4db8] font-medium">Timeline</a>
+                <a href="prizes-sponsors.html" class="block px-3 py-2 text-gray-700 hover:text-[#ff4db8] font-medium">Prizes & Sponsors</a>
+                <a href="#register" class="block px-3 py-2 bg-[#ff4db8] text-white rounded-lg font-medium text-center">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative z-10 py-12">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                About Hack Egerton
+            </h1>
+            <p class="text-lg text-gray-600 leading-relaxed">
+                Empowering students to build the future through innovation and automation
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="relative z-10 pb-20">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <!-- About Overview -->
+            <section class="mb-12">
+                <div class="bg-white rounded-xl shadow-md p-8 border border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">
+                        Our Mission
+                    </h2>
+                    <p class="text-base text-gray-600 leading-relaxed text-center max-w-3xl mx-auto">
+                        Hack Egerton: Automating Our Future is a student-driven hackathon organized by EUCOSSA to inspire innovation within Egerton University. The goal is to empower students to identify everyday challenges on campus and create tech-driven solutions—from small automations to big systems—that improve learning, administration, and student life.
+                    </p>
+                </div>
+            </section>
+
+            <!-- What We Do -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+                    What We Do
+                </h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-shadow border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=300&h=200&fit=crop&crop=center" alt="Innovation" class="w-full h-24 object-cover rounded-lg mb-4">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Innovation</h3>
+                        <p class="text-sm text-gray-600">We foster creative thinking and innovative solutions to real-world problems on campus.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-shadow border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=300&h=200&fit=crop&crop=center" alt="Automation" class="w-full h-24 object-cover rounded-lg mb-4">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Automation</h3>
+                        <p class="text-sm text-gray-600">We build systems that automate repetitive tasks and streamline campus operations.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-shadow border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=300&h=200&fit=crop&crop=center" alt="Community" class="w-full h-24 object-cover rounded-lg mb-4">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Community</h3>
+                        <p class="text-sm text-gray-600">We bring together students, mentors, and industry professionals to collaborate.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Event Details -->
+            <section class="mb-12">
+                <div class="bg-white rounded-xl shadow-md p-8 border border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">
+                        Event Details
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">When & Where</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-[#ff4db8] rounded-full flex items-center justify-center">
+                                        <span class="text-white text-sm">📅</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 text-sm">Date</h4>
+                                        <p class="text-gray-600 text-sm">November 2025</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-[#ff4db8] rounded-full flex items-center justify-center">
+                                        <span class="text-white text-sm">📍</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 text-sm">Location</h4>
+                                        <p class="text-gray-600 text-sm">Egerton University, Kenya</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-[#ff4db8] rounded-full flex items-center justify-center">
+                                        <span class="text-white text-sm">⏰</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 text-sm">Duration</h4>
+                                        <p class="text-gray-600 text-sm">48 Hours</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">What to Expect</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-[#ff4db8] rounded-full mt-2"></div>
+                                    <span class="text-gray-600 text-sm">Networking with industry professionals and fellow students</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-[#ff4db8] rounded-full mt-2"></div>
+                                    <span class="text-gray-600 text-sm">Workshops on cutting-edge technologies</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-[#ff4db8] rounded-full mt-2"></div>
+                                    <span class="text-gray-600 text-sm">Mentorship from experienced developers</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-[#ff4db8] rounded-full mt-2"></div>
+                                    <span class="text-gray-600 text-sm">Amazing prizes and recognition</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-[#ff4db8] rounded-full mt-2"></div>
+                                    <span class="text-gray-600 text-sm">Free food and refreshments throughout the event</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Organizers -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+                    Organized By
+                </h2>
+                <div class="bg-white rounded-xl shadow-md p-8 text-center border border-gray-100">
+                    <div class="max-w-2xl mx-auto">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">EUCOSSA</h3>
+                        <p class="text-base text-gray-600 mb-6">
+                            The Egerton University Computer Science Students Association (EUCOSSA) is dedicated to fostering innovation and technological advancement within the university community.
+                        </p>
+                        <div class="flex justify-center space-x-6">
+                            <div class="text-center">
+                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=200&h=150&fit=crop&crop=center" alt="Student-Led" class="w-16 h-16 object-cover rounded-full mx-auto mb-3">
+                                <h4 class="font-semibold text-gray-900 text-sm">Student-Led</h4>
+                                <p class="text-xs text-gray-600">By students, for students</p>
+                            </div>
+                            <div class="text-center">
+                                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=200&h=150&fit=crop&crop=center" alt="Quality Events" class="w-16 h-16 object-cover rounded-full mx-auto mb-3">
+                                <h4 class="font-semibold text-gray-900 text-sm">Quality Events</h4>
+                                <p class="text-xs text-gray-600">Proven track record</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-3">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-3">
+                <!-- Logo and Description -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-2">
+                        <img src="assets/logo.png" alt="Egerton University" class="h-6 w-auto">
+                        <span class="text-lg font-bold">Hack Egerton</span>
+                    </div>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        Empowering students to build the future through innovation and automation. Organized by EUCOSSA.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-base font-semibold mb-2">Quick Links</h3>
+                    <ul class="space-y-1">
+                        <li><a href="index.html" class="text-gray-400 hover:text-[#ff4db8] transition-colors text-xs">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-[#ff4db8] transition-colors text-xs">About</a></li>
+                        <li><a href="tracks.html" class="text-gray-400 hover:text-[#ff4db8] transition-colors text-xs">Tracks</a></li>
+                        <li><a href="timeline.html" class="text-gray-400 hover:text-[#ff4db8] transition-colors text-xs">Timeline</a></li>
+                        <li><a href="prizes-sponsors.html" class="text-gray-400 hover:text-[#ff4db8] transition-colors text-xs">Prizes & Sponsors</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Social Media -->
+                <div>
+                    <h3 class="text-base font-semibold mb-2">Connect With Us</h3>
+                    <div class="space-y-2">
+                        <a href="https://www.instagram.com/eucossake?igsh=aGg2dno4aXNobmU3" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-[#ff4db8] transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                            <span class="text-xs">@eucossake</span>
+                        </a>
+                        <a href="https://x.com/eucossake?t=hGZxxHxZDkYKaAym9ziTmw&s=09" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-[#ff4db8] transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                            <span class="text-xs">@eucossake</span>
+                        </a>
+                        <a href="mailto:eucossake@gmail.com" class="flex items-center space-x-2 text-gray-400 hover:text-[#ff4db8] transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <span class="text-xs">eucossake@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 mt-3 pt-3 text-center">
+                <p class="text-gray-400 text-xs">
+                    © 2025 Hack Egerton. All rights reserved. Organized by EUCOSSA.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for mobile menu -->
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
