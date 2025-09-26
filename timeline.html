@@ -51,7 +51,7 @@
 </head>
 <body class="gradient-bg min-h-screen">
     <!-- Navigation -->
-    <nav class="relative z-10 px-6 py-4">
+    <nav class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <!-- Logo -->
             <div class="flex items-center space-x-3">
@@ -114,29 +114,32 @@
                     <h2 class="text-2xl font-bold text-gray-900 mb-4">
                         Event Schedule
                     </h2>
-                    <p class="text-base text-gray-600 leading-relaxed max-w-3xl mx-auto mb-6">
+                    <p class="text-base text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4">
                         This is the official schedule of Hack Egerton 2025, with key dates from registration to final pitching. Mark your calendars and stay updated with all important milestones.
+                    </p>
+                    <p class="text-sm text-gray-500 italic max-w-3xl mx-auto mb-6">
+                        * Please note that dates are subject to change. We will notify all participants of any updates.
                     </p>
                     
                     <!-- Countdown Timer -->
                     <div class="bg-gradient-to-r from-[#ff4db8] to-[#e63ea6] rounded-lg p-6 text-white">
                         <h3 class="text-lg font-bold mb-4">Countdown to Registration</h3>
-                        <div id="countdown" class="flex justify-center space-x-4 text-center">
-                            <div class="bg-white/20 rounded-lg p-3 min-w-[60px]">
-                                <div id="days" class="text-2xl font-bold">00</div>
-                                <div class="text-sm">Days</div>
+                        <div id="countdown" class="flex justify-center space-x-2 md:space-x-4 text-center">
+                            <div class="bg-white/20 rounded-lg p-2 md:p-3 min-w-[70px] md:min-w-[60px]">
+                                <div id="days" class="text-xl md:text-2xl font-bold">00</div>
+                                <div class="text-xs md:text-sm">Days</div>
                             </div>
-                            <div class="bg-white/20 rounded-lg p-3 min-w-[60px]">
-                                <div id="hours" class="text-2xl font-bold">00</div>
-                                <div class="text-sm">Hours</div>
+                            <div class="bg-white/20 rounded-lg p-2 md:p-3 min-w-[70px] md:min-w-[60px]">
+                                <div id="hours" class="text-xl md:text-2xl font-bold">00</div>
+                                <div class="text-xs md:text-sm">Hours</div>
                             </div>
-                            <div class="bg-white/20 rounded-lg p-3 min-w-[60px]">
-                                <div id="minutes" class="text-2xl font-bold">00</div>
-                                <div class="text-sm">Minutes</div>
+                            <div class="bg-white/20 rounded-lg p-2 md:p-3 min-w-[70px] md:min-w-[60px]">
+                                <div id="minutes" class="text-xl md:text-2xl font-bold">00</div>
+                                <div class="text-xs md:text-sm">Minutes</div>
                             </div>
-                            <div class="bg-white/20 rounded-lg p-3 min-w-[60px]">
-                                <div id="seconds" class="text-2xl font-bold">00</div>
-                                <div class="text-sm">Seconds</div>
+                            <div class="bg-white/20 rounded-lg p-2 md:p-3 min-w-[70px] md:min-w-[60px]">
+                                <div id="seconds" class="text-xl md:text-2xl font-bold">00</div>
+                                <div class="text-xs md:text-sm">Seconds</div>
                             </div>
                         </div>
                     </div>
