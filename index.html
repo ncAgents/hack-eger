@@ -52,8 +52,8 @@
                 <a href="#register" class="bg-[#ff4db8] text-white px-6 py-2 rounded-lg font-medium hover:bg-[#e63ea6] transition-colors">Register</a>
             </div>
             
-            <!-- Mobile menu button -->
-            <button class="md:hidden text-gray-700" id="mobile-menu-button">
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -61,15 +61,17 @@
         </div>
         
         <!-- Mobile Navigation -->
-        <div class="md:hidden hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 bg-white/80 backdrop-blur-sm rounded-lg mt-2">
-                <a href="#home" class="block px-3 py-2 text-[#ff4db8] font-medium">Home</a>
-                <a href="about.html" class="block px-3 py-2 text-gray-700 hover:text-[#ff4db8] font-medium">About</a>
-                <a href="tracks.html" class="block px-3 py-2 text-gray-700 hover:text-[#ff4db8] font-medium">Tracks</a>
-                <a href="timeline.html" class="block px-3 py-2 text-gray-700 hover:text-[#ff4db8] font-medium">Timeline</a>
-                    <a href="prizes-sponsors.html" class="block px-3 py-2 text-gray-700 hover:text-[#ff4db8] font-medium">Prizes & Sponsors</a>
-                    <a href="speakers.html" class="block px-3 py-2 text-gray-700 hover:text-[#ff4db8] font-medium">Speakers</a>
-                <a href="#register" class="block px-3 py-2 bg-[#ff4db8] text-white rounded-lg font-medium text-center">Register</a>
+        <div id="mobile-menu" class="hidden md:hidden pb-4">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="text-[#ff4db8] font-semibold">Home</a>
+                <a href="about.html" class="text-gray-600 hover:text-[#ff4db8] transition-colors font-medium">About</a>
+                <a href="tracks.html" class="text-gray-600 hover:text-[#ff4db8] transition-colors font-medium">Tracks</a>
+                <a href="timeline.html" class="text-gray-600 hover:text-[#ff4db8] transition-colors font-medium">Timeline</a>
+                <a href="prizes-sponsors.html" class="text-gray-600 hover:text-[#ff4db8] transition-colors font-medium">Prizes & Sponsors</a>
+                <a href="speakers.html" class="text-gray-600 hover:text-[#ff4db8] transition-colors font-medium">Speakers</a>
+                <a href="#register" class="bg-[#ff4db8] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#e63a9f] transition-colors text-center">
+                    Register
+                </a>
             </div>
         </div>
     </nav>

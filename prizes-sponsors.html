@@ -139,8 +139,8 @@
                 </p>
             </div>
 
-            <!-- Sponsor Logos - Animated Layout with Celebration Dots -->
-            <div class="bg-white rounded-2xl p-12 mb-12 shadow-lg relative overflow-hidden">
+            <!-- Sponsor Logos - Horizontal Scrolling Animation -->
+            <div class="bg-white rounded-2xl p-8 mb-12 shadow-lg relative overflow-hidden">
                 <!-- Celebration Dots Background -->
                 <div class="absolute inset-0 pointer-events-none">
                     <div class="absolute top-4 left-4 w-2 h-2 bg-[#ff4db8] rounded-full animate-bounce" style="animation-delay: 0s; animation-duration: 2s;"></div>
@@ -153,22 +153,38 @@
                     <div class="absolute top-2/3 right-6 w-1.5 h-1.5 bg-orange-400 rounded-full animate-bounce" style="animation-delay: 0.3s; animation-duration: 2.7s;"></div>
                 </div>
                 
-                <div class="grid grid-cols-2 md:grid-cols-5 gap-6 justify-items-center relative z-10">
-                    <!-- Sponsor Logos with Cute Animations -->
-                    <div class="group flex items-center justify-center p-6 rounded-2xl hover:bg-gradient-to-br hover:from-pink-50 hover:to-purple-50 transition-all duration-500 hover:scale-110 hover:rotate-2 hover:shadow-lg">
-                        <img src="sponsors/logo.png" alt="Sponsor Logo" class="h-16 w-auto object-contain transition-all duration-500 group-hover:drop-shadow-lg">
-                    </div>
-                    <div class="group flex items-center justify-center p-6 rounded-2xl hover:bg-gradient-to-br hover:from-blue-50 hover:to-cyan-50 transition-all duration-500 hover:scale-110 hover:-rotate-2 hover:shadow-lg">
-                        <img src="sponsors/ardena.png" alt="Ardena" class="h-16 w-auto object-contain transition-all duration-500 group-hover:drop-shadow-lg">
-                    </div>
-                    <div class="group flex items-center justify-center p-6 rounded-2xl hover:bg-gradient-to-br hover:from-green-50 hover:to-emerald-50 transition-all duration-500 hover:scale-110 hover:rotate-2 hover:shadow-lg">
-                        <img src="sponsors/eu.jpeg" alt="Egerton University" class="h-16 w-auto object-contain transition-all duration-500 group-hover:drop-shadow-lg">
-                    </div>
-                    <div class="group flex items-center justify-center p-6 rounded-2xl hover:bg-gradient-to-br hover:from-orange-50 hover:to-yellow-50 transition-all duration-500 hover:scale-110 hover:-rotate-2 hover:shadow-lg">
-                        <img src="sponsors/zindigi.png" alt="Zindigi" class="h-16 w-auto object-contain transition-all duration-500 group-hover:drop-shadow-lg">
-                    </div>
-                    <div class="group flex items-center justify-center p-6 rounded-2xl hover:bg-gradient-to-br hover:from-indigo-50 hover:to-blue-50 transition-all duration-500 hover:scale-110 hover:rotate-2 hover:shadow-lg">
-                        <img src="sponsors/gdg.png" alt="Google Developer Groups" class="h-16 w-auto object-contain transition-all duration-500 group-hover:drop-shadow-lg">
+                <!-- Horizontal Scrolling Sponsor Logos -->
+                <div class="relative z-10">
+                    <!-- Left Arrow Button -->
+                    <button id="move-left" class="absolute -left-6 top-1/2 transform -translate-y-1/2 bg-[#ff4db8] text-white w-10 h-10 rounded-full hover:bg-[#e63a9f] transition-colors flex items-center justify-center z-20 shadow-lg">
+                        <
+                    </button>
+                    
+                    <!-- Right Arrow Button -->
+                    <button id="move-right" class="absolute -right-6 top-1/2 transform -translate-y-1/2 bg-[#ff4db8] text-white w-10 h-10 rounded-full hover:bg-[#e63a9f] transition-colors flex items-center justify-center z-20 shadow-lg">
+                        >
+                    </button>
+                    
+                    <!-- Sponsors Container -->
+                    <div class="overflow-hidden">
+                        <div id="sponsors-container" class="flex items-center transition-transform duration-500 ease-in-out" style="width: max-content;">
+                            <!-- Sponsor Logos with Hover Effects -->
+                            <div class="group flex items-center justify-center p-4 rounded-xl hover:bg-gradient-to-br hover:from-pink-50 hover:to-purple-50 transition-all duration-500 hover:scale-110 hover:rotate-2 hover:shadow-lg flex-shrink-0 mx-6">
+                                <img src="sponsors/logo.png" alt="Sponsor Logo" class="h-12 w-auto object-contain transition-all duration-500 group-hover:drop-shadow-lg" onerror="this.style.display='none'">
+                            </div>
+                            <div class="group flex items-center justify-center p-4 rounded-xl hover:bg-gradient-to-br hover:from-blue-50 hover:to-cyan-50 transition-all duration-500 hover:scale-110 hover:-rotate-2 hover:shadow-lg flex-shrink-0 mx-6">
+                                <img src="sponsors/ardena.png" alt="Ardena" class="h-12 w-auto object-contain transition-all duration-500 group-hover:drop-shadow-lg" onerror="this.style.display='none'">
+                            </div>
+                            <div class="group flex items-center justify-center p-4 rounded-xl hover:bg-gradient-to-br hover:from-green-50 hover:to-emerald-50 transition-all duration-500 hover:scale-110 hover:rotate-2 hover:shadow-lg flex-shrink-0 mx-6">
+                                <img src="sponsors/eu.jpeg" alt="Egerton University" class="h-12 w-auto object-contain transition-all duration-500 group-hover:drop-shadow-lg" onerror="this.style.display='none'">
+                            </div>
+                            <div class="group flex items-center justify-center p-4 rounded-xl hover:bg-gradient-to-br hover:from-orange-50 hover:to-yellow-50 transition-all duration-500 hover:scale-110 hover:-rotate-2 hover:shadow-lg flex-shrink-0 mx-6">
+                                <img src="sponsors/zindigi.png" alt="Zindigi" class="h-12 w-auto object-contain transition-all duration-500 group-hover:drop-shadow-lg" onerror="this.style.display='none'">
+                            </div>
+                            <div class="group flex items-center justify-center p-4 rounded-xl hover:bg-gradient-to-br hover:from-indigo-50 hover:to-blue-50 transition-all duration-500 hover:scale-110 hover:rotate-2 hover:shadow-lg flex-shrink-0 mx-6">
+                                <img src="sponsors/gdg.png" alt="Google Developer Groups" class="h-12 w-auto object-contain transition-all duration-500 group-hover:drop-shadow-lg" onerror="this.style.display='none'">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -254,11 +270,46 @@
         </div>
     </footer>
 
-    <!-- JavaScript for mobile menu -->
+    <!-- JavaScript for mobile menu and sponsors animation -->
     <script>
+        // Mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // Sponsors manual control
+        function initSponsorControls() {
+            const container = document.getElementById('sponsors-container');
+            const moveLeftBtn = document.getElementById('move-left');
+            const moveRightBtn = document.getElementById('move-right');
+            
+            if (!container || !moveLeftBtn || !moveRightBtn) return;
+
+            let currentPosition = 0;
+            const moveAmount = 200; // pixels to move each time
+
+            function updatePosition() {
+                container.style.transform = `translateX(${currentPosition}px)`;
+            }
+
+            moveLeftBtn.addEventListener('click', function() {
+                currentPosition += moveAmount;
+                updatePosition();
+            });
+
+            moveRightBtn.addEventListener('click', function() {
+                currentPosition -= moveAmount;
+                updatePosition();
+            });
+
+            // Initialize position
+            updatePosition();
+        }
+
+        // Initialize controls when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initSponsorControls();
         });
     </script>
 </body>
