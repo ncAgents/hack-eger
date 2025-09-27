@@ -72,8 +72,11 @@
             
             <!-- Mobile menu button -->
             <button class="md:hidden text-gray-700" id="mobile-menu-button">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-6 h-6" id="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                <svg class="w-6 h-6 hidden" id="close-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
         </div>
@@ -188,20 +191,40 @@
                         <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100 md:ml-8">
                             <div class="mb-4">
                                 <h3 class="text-xl font-bold text-gray-900 mb-2">Online Hackathon Master Class</h3>
-                                <p class="text-sm font-semibold text-[#ff4db8]">October 17–23, 2025</p>
+                                <p class="text-sm font-semibold text-[#ff4db8]">October 18 & 25, 2025</p>
                             </div>
-                            <div class="space-y-2 mb-4">
-                                <div class="flex items-center space-x-2">
-                                    <span class="text-sm font-medium text-gray-700">Format:</span>
-                                    <span class="text-sm text-gray-600">Online Sessions</span>
+                            <div class="space-y-3 mb-4">
+                                <div class="bg-gray-50 rounded-lg p-3">
+                                    <div class="flex items-center space-x-2 mb-1">
+                                        <span class="text-sm font-medium text-gray-700">Session 1:</span>
+                                        <span class="text-sm font-semibold text-[#ff4db8]">October 18, 2025</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2 mb-1">
+                                        <span class="text-sm font-medium text-gray-700">Time:</span>
+                                        <span class="text-sm text-gray-600">8:00 PM - 9:00 PM</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-sm font-medium text-gray-700">Topic:</span>
+                                        <span class="text-sm text-gray-600">AI and Future of Automation</span>
+                                    </div>
                                 </div>
-                                <div class="flex items-center space-x-2">
-                                    <span class="text-sm font-medium text-gray-700">Duration:</span>
-                                    <span class="text-sm text-gray-600">Daily 2-hour sessions</span>
+                                <div class="bg-gray-50 rounded-lg p-3">
+                                    <div class="flex items-center space-x-2 mb-1">
+                                        <span class="text-sm font-medium text-gray-700">Session 2:</span>
+                                        <span class="text-sm font-semibold text-[#ff4db8]">October 25, 2025</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2 mb-1">
+                                        <span class="text-sm font-medium text-gray-700">Time:</span>
+                                        <span class="text-sm text-gray-600">8:00 PM - 9:00 PM</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-sm font-medium text-gray-700">Topic:</span>
+                                        <span class="text-sm text-gray-600">The Future of Web3 with Stellar</span>
+                                    </div>
                                 </div>
                             </div>
                             <p class="text-sm text-gray-600 leading-relaxed">
-                                Expert-led master classes covering advanced topics, best practices, and industry insights to enhance your hackathon project.
+                                Expert-led master classes covering cutting-edge technologies and industry insights to enhance your hackathon project.
                             </p>
                         </div>
                     </div>
@@ -339,7 +362,12 @@
         // Mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+            
             mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
         });
 
         // Countdown timer

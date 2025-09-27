@@ -51,8 +51,11 @@
             
             <!-- Mobile menu button -->
             <button class="md:hidden text-gray-700" id="mobile-menu-button">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-6 h-6" id="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                <svg class="w-6 h-6 hidden" id="close-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
         </div>
@@ -159,7 +162,7 @@
                                     </div>
                                     <div>
                                         <h4 class="font-semibold text-gray-900 text-sm">Duration</h4>
-                                        <p class="text-gray-600 text-sm">48 Hours</p>
+                                        <p class="text-gray-600 text-sm">30 Days</p>
                                     </div>
                                 </div>
                             </div>
@@ -272,7 +275,12 @@
     <script>
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+            
             mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
         });
     </script>
 </body>
