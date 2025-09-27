@@ -258,6 +258,71 @@
                 </p>
             </div>
         </section>
+
+        <!-- Events Goodies Section -->
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    Events Goodies
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Check out some of the amazing merchandise available at Hack Egerton 2025!
+                </p>
+            </div>
+
+            <!-- Merchandise Gallery -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg">
+                <div class="relative">
+                    <!-- Navigation Buttons -->
+                    <button id="merchPrevBtn" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-[#ff4db8] text-white p-3 rounded-full shadow-lg hover:bg-[#e63a9f] transition-colors z-10">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    
+                    <button id="merchNextBtn" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-[#ff4db8] text-white p-3 rounded-full shadow-lg hover:bg-[#e63a9f] transition-colors z-10">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Merchandise Container -->
+                    <div class="overflow-hidden">
+                        <div id="merchGallery" class="flex transition-transform duration-500 ease-in-out">
+                            <!-- Merch Item 1 -->
+                            <div class="min-w-full flex justify-center">
+                                <div class="max-w-md">
+                                    <img src="merch/tish1.jpg" alt="Hack Egerton T-Shirt Design 1" 
+                                         class="w-full h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                    <div class="mt-4 text-center">
+                                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Hack Egerton 2025 T-Shirt</h3>
+                                        <p class="text-gray-600">Official event t-shirt with unique design</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Merch Item 2 -->
+                            <div class="min-w-full flex justify-center">
+                                <div class="max-w-md">
+                                    <img src="merch/tish2.jpg" alt="Hack Egerton T-Shirt Design 2" 
+                                         class="w-full h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                    <div class="mt-4 text-center">
+                                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Limited Edition Design</h3>
+                                        <p class="text-gray-600">Exclusive design available only at the event</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dots Indicator -->
+                    <div class="flex justify-center mt-6 space-x-2">
+                        <button class="merch-dot w-3 h-3 rounded-full bg-[#ff4db8] transition-all duration-300" data-slide="0"></button>
+                        <button class="merch-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300" data-slide="1"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -334,6 +399,56 @@
             menuIcon.classList.toggle('hidden');
             closeIcon.classList.toggle('hidden');
         });
+
+        // Merchandise Gallery Functionality
+        let currentMerchSlide = 0;
+        const totalMerchSlides = 2;
+        const merchGallery = document.getElementById('merchGallery');
+        const merchPrevBtn = document.getElementById('merchPrevBtn');
+        const merchNextBtn = document.getElementById('merchNextBtn');
+        const merchDots = document.querySelectorAll('.merch-dot');
+
+        function updateMerchGallery() {
+            const translateX = -currentMerchSlide * 100;
+            merchGallery.style.transform = `translateX(${translateX}%)`;
+            
+            // Update dots
+            merchDots.forEach((dot, index) => {
+                if (index === currentMerchSlide) {
+                    dot.classList.remove('bg-gray-300');
+                    dot.classList.add('bg-[#ff4db8]');
+                } else {
+                    dot.classList.remove('bg-[#ff4db8]');
+                    dot.classList.add('bg-gray-300');
+                }
+            });
+        }
+
+        // Previous button
+        merchPrevBtn.addEventListener('click', function() {
+            currentMerchSlide = (currentMerchSlide - 1 + totalMerchSlides) % totalMerchSlides;
+            updateMerchGallery();
+        });
+
+        // Next button
+        merchNextBtn.addEventListener('click', function() {
+            currentMerchSlide = (currentMerchSlide + 1) % totalMerchSlides;
+            updateMerchGallery();
+        });
+
+        // Dot navigation
+        merchDots.forEach((dot, index) => {
+            dot.addEventListener('click', function() {
+                currentMerchSlide = index;
+                updateMerchGallery();
+            });
+        });
+
+        // Auto-play (optional - uncomment if you want auto-scrolling)
+        // setInterval(() => {
+        //     currentMerchSlide = (currentMerchSlide + 1) % totalMerchSlides;
+        //     updateMerchGallery();
+        // }, 5000);
 
         // Back to top button functionality
         const backToTopButton = document.getElementById('back-to-top');
