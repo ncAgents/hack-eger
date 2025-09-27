@@ -105,23 +105,41 @@
                 <form id="registration-form" class="space-y-6">
                     <div>
                         <label for="fullName" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
-                        <input type="text" id="fullName" name="fullName" required
-                               class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4db8] focus:border-transparent transition-colors text-sm md:text-base"
-                               placeholder="Enter your full name">
+                        <div class="relative">
+                            <input type="text" id="fullName" name="fullName" required autocomplete="name"
+                                   class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4db8] focus:border-transparent transition-all duration-200 text-sm md:text-base"
+                                   placeholder="Enter your full name">
+                            <div id="nameValidation" class="absolute right-3 top-1/2 transform -translate-y-1/2 hidden">
+                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <p id="nameError" class="text-xs text-red-500 mt-1 hidden">Please enter your full name</p>
                     </div>
 
                     <div>
                         <label for="phoneNumber" class="block text-sm font-medium text-gray-700 mb-2">M-Pesa Number</label>
-                        <input type="tel" id="phoneNumber" name="phoneNumber" required
-                               class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4db8] focus:border-transparent transition-colors text-sm md:text-base"
-                               placeholder="Enter your phone number (e.g., 0712345678, 0111465313, or 254712345678)">
+                        <div class="relative">
+                            <input type="tel" id="phoneNumber" name="phoneNumber" required 
+                                   inputmode="numeric" autocomplete="tel"
+                                   class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4db8] focus:border-transparent transition-all duration-200 text-sm md:text-base"
+                                   placeholder="Enter your phone number (e.g., 0712345678, 0111465313, or 254712345678)">
+                            <div id="phoneValidation" class="absolute right-3 top-1/2 transform -translate-y-1/2 hidden">
+                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <p id="phoneError" class="text-xs text-red-500 mt-1 hidden">Please enter a valid phone number</p>
                         <p class="text-xs text-gray-500 mt-1">
                             You can enter your number as 0712345678, 0111465313, or 254712345678 - all formats work!
                         </p>
                     </div>
 
-                    <button type="submit" 
-                            class="w-full bg-[#ff4db8] hover:bg-[#e63a9f] text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg transition-colors duration-200 flex items-center justify-center text-sm md:text-base">
+                    <button type="submit" id="submitBtn"
+                            class="w-full bg-gray-400 text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg transition-all duration-200 flex items-center justify-center text-sm md:text-base cursor-not-allowed"
+                            disabled>
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                         </svg>
@@ -294,6 +312,88 @@
             "254723151744",
             "254111465313",
         ];
+
+        // Real-time form validation
+        function validateName(name) {
+            return name.trim().length >= 2 && name.trim().split(' ').length >= 2;
+        }
+
+        function validatePhone(phone) {
+            const cleanPhone = phone.replace(/[\s+\-]/g, '');
+            
+            // Check for complete valid formats
+            if (cleanPhone.startsWith('07') && cleanPhone.length === 10) {
+                return true; // 0712345678
+            }
+            if (cleanPhone.startsWith('01') && cleanPhone.length === 10) {
+                return true; // 0111465313
+            }
+            if (cleanPhone.startsWith('254') && cleanPhone.length === 12) {
+                return true; // 254712345678
+            }
+            if (cleanPhone.startsWith('7') && cleanPhone.length === 9) {
+                return true; // 712345678
+            }
+            if (cleanPhone.startsWith('1') && cleanPhone.length === 10) {
+                return true; // 111465313
+            }
+            
+            return false;
+        }
+
+        function updateFieldValidation(fieldId, isValid, errorId, validationId) {
+            const field = document.getElementById(fieldId);
+            const error = document.getElementById(errorId);
+            const validation = document.getElementById(validationId);
+            
+            if (isValid) {
+                field.classList.remove('border-red-300', 'focus:ring-red-500');
+                field.classList.add('border-green-300', 'focus:ring-green-500');
+                error.classList.add('hidden');
+                validation.classList.remove('hidden');
+            } else {
+                field.classList.remove('border-green-300', 'focus:ring-green-500');
+                field.classList.add('border-red-300', 'focus:ring-red-500');
+                error.classList.remove('hidden');
+                validation.classList.add('hidden');
+            }
+            
+            // Update submit button state
+            updateSubmitButton();
+        }
+
+        function updateSubmitButton() {
+            const nameValid = validateName(document.getElementById('fullName').value);
+            const phoneValid = validatePhone(document.getElementById('phoneNumber').value);
+            const submitBtn = document.getElementById('submitBtn');
+            
+            if (nameValid && phoneValid) {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('bg-gray-400', 'cursor-not-allowed');
+                submitBtn.classList.add('bg-[#ff4db8]', 'hover:bg-[#e63a9f]', 'cursor-pointer');
+            } else {
+                submitBtn.disabled = true;
+                submitBtn.classList.remove('bg-[#ff4db8]', 'hover:bg-[#e63a9f]', 'cursor-pointer');
+                submitBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
+            }
+        }
+
+        // Name field validation
+        document.getElementById('fullName').addEventListener('input', function() {
+            const isValid = validateName(this.value);
+            updateFieldValidation('fullName', isValid, 'nameError', 'nameValidation');
+        });
+
+        // Phone field validation
+        document.getElementById('phoneNumber').addEventListener('input', function() {
+            const isValid = validatePhone(this.value);
+            updateFieldValidation('phoneNumber', isValid, 'phoneError', 'phoneValidation');
+        });
+
+        // Auto-focus on name field when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('fullName').focus();
+        });
 
         // Registration form handling
         document.getElementById('registration-form').addEventListener('submit', function(e) {
