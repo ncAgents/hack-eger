@@ -3,7 +3,7 @@ name: Deploy HTML site to cPanel
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
