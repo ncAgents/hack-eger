@@ -9,11 +9,13 @@ jobs:
   deploy:
     name: Upload static site to cPanel
     runs-on: ubuntu-latest
-    
+
     steps:
       # Step 1: Checkout repository
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2.1.0
+        with:
+          fetch-depth: 2
 
       # Step 2: FTP Deploy (upload all files to cPanel public_html)
       - name: FTP Deploy
