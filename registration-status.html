@@ -411,16 +411,155 @@
             updateFieldValidation('fullName', isValid, 'nameError', 'nameValidation');
         });
 
-        // Phone field validation
+        // Phone field validation and formatting
         document.getElementById('phoneNumber').addEventListener('input', function() {
+            // Format phone number as user types
+            let value = this.value.replace(/\D/g, ''); // Remove non-digits
+            
+            // Format based on length and prefix
+            if (value.startsWith('254')) {
+                // Format: 254 712 345 678
+                if (value.length > 3) {
+                    value = value.substring(0, 3) + ' ' + value.substring(3);
+                }
+                if (value.length > 7) {
+                    value = value.substring(0, 7) + ' ' + value.substring(7);
+                }
+                if (value.length > 11) {
+                    value = value.substring(0, 11) + ' ' + value.substring(11);
+                }
+            } else if (value.startsWith('07') || value.startsWith('01')) {
+                // Format: 0712 345 678 or 0111 465 313
+                if (value.length > 4) {
+                    value = value.substring(0, 4) + ' ' + value.substring(4);
+                }
+                if (value.length > 8) {
+                    value = value.substring(0, 8) + ' ' + value.substring(8);
+                }
+            } else if (value.startsWith('7') && value.length <= 9) {
+                // Format: 712 345 678
+                if (value.length > 3) {
+                    value = value.substring(0, 3) + ' ' + value.substring(3);
+                }
+                if (value.length > 7) {
+                    value = value.substring(0, 7) + ' ' + value.substring(7);
+                }
+            } else if (value.startsWith('1') && value.length <= 10) {
+                // Format: 111 465 313
+                if (value.length > 3) {
+                    value = value.substring(0, 3) + ' ' + value.substring(3);
+                }
+                if (value.length > 7) {
+                    value = value.substring(0, 7) + ' ' + value.substring(7);
+                }
+            }
+            
+            // Update the input value
+            this.value = value;
+            
+            // Validate the formatted number
             const isValid = validatePhone(this.value);
             updateFieldValidation('phoneNumber', isValid, 'phoneError', 'phoneValidation');
         });
 
+        // Auto-save form data to localStorage
+        function saveFormData() {
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                phoneNumber: document.getElementById('phoneNumber').value
+            };
+            localStorage.setItem('hackEgertonFormData', JSON.stringify(formData));
+        }
+
+        function loadFormData() {
+            const savedData = localStorage.getItem('hackEgertonFormData');
+            if (savedData) {
+                const formData = JSON.parse(savedData);
+                document.getElementById('fullName').value = formData.fullName || '';
+                document.getElementById('phoneNumber').value = formData.phoneNumber || '';
+                
+                // Trigger validation for loaded data
+                if (formData.fullName) {
+                    const nameValid = validateName(formData.fullName);
+                    updateFieldValidation('fullName', nameValid, 'nameError', 'nameValidation');
+                }
+                if (formData.phoneNumber) {
+                    const phoneValid = validatePhone(formData.phoneNumber);
+                    updateFieldValidation('phoneNumber', phoneValid, 'phoneError', 'phoneValidation');
+                }
+            }
+        }
+
+        // Save form data on input
+        document.getElementById('fullName').addEventListener('input', function() {
+            saveFormData();
+        });
+
+        document.getElementById('phoneNumber').addEventListener('input', function() {
+            saveFormData();
+        });
+
         // Auto-focus on name field when page loads
         document.addEventListener('DOMContentLoaded', function() {
+            loadFormData(); // Load saved data first
             document.getElementById('fullName').focus();
         });
+
+        // Confetti animation function
+        function triggerConfetti() {
+            // Create confetti container
+            const confettiContainer = document.createElement('div');
+            confettiContainer.style.position = 'fixed';
+            confettiContainer.style.top = '0';
+            confettiContainer.style.left = '0';
+            confettiContainer.style.width = '100%';
+            confettiContainer.style.height = '100%';
+            confettiContainer.style.pointerEvents = 'none';
+            confettiContainer.style.zIndex = '9999';
+            document.body.appendChild(confettiContainer);
+
+            // Create confetti pieces
+            const colors = ['#ff4db8', '#22c55e', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6'];
+            const confettiCount = 50;
+
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'absolute';
+                confetti.style.width = '10px';
+                confetti.style.height = '10px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '-10px';
+                confetti.style.borderRadius = '50%';
+                confetti.style.animation = `confettiFall ${2 + Math.random() * 3}s linear forwards`;
+                
+                confettiContainer.appendChild(confetti);
+            }
+
+            // Add CSS animation
+            if (!document.getElementById('confetti-styles')) {
+                const style = document.createElement('style');
+                style.id = 'confetti-styles';
+                style.textContent = `
+                    @keyframes confettiFall {
+                        0% {
+                            transform: translateY(-100vh) rotate(0deg);
+                            opacity: 1;
+                        }
+                        100% {
+                            transform: translateY(100vh) rotate(720deg);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+
+            // Remove confetti after animation
+            setTimeout(() => {
+                confettiContainer.remove();
+            }, 5000);
+        }
 
         // Registration form handling
         document.getElementById('registration-form').addEventListener('submit', function(e) {
@@ -495,6 +634,9 @@
                     setTimeout(() => {
                         confirmedStatus.classList.remove('opacity-0');
                         confirmedStatus.classList.add('opacity-100');
+                        
+                        // Trigger confetti animation
+                        triggerConfetti();
                     }, 50);
                     
                     // Store user data for ticket generation
