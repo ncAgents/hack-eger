@@ -147,10 +147,30 @@
                     </button>
                 </form>
 
+                <!-- Progress Indicator -->
+                <div id="progress-indicator" class="mt-8 hidden">
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0">
+                                <svg class="animate-spin h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-medium text-blue-800">Checking Registration...</h3>
+                                <p class="mt-1 text-blue-700">
+                                    Please wait while we verify your registration details.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Status Display -->
                 <div id="status-display" class="mt-8 hidden">
                     <!-- Pending Status -->
-                    <div id="pending-status" class="hidden bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+                    <div id="pending-status" class="hidden bg-yellow-50 border border-yellow-200 rounded-lg p-6 transform opacity-0 transition-all duration-500 ease-out">
                         <div class="flex items-center">
                             <div class="flex-shrink-0">
                                 <svg class="h-8 w-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -158,17 +178,24 @@
                                 </svg>
                             </div>
                             <div class="ml-3">
-                                <h3 class="text-lg font-medium text-yellow-800">Registration Pending</h3>
+                                <h3 class="text-lg font-medium text-yellow-800">Registration Not Found</h3>
                                 <p class="mt-1 text-yellow-700">
-                                    Your registration is being processed. Please check back within 12 hours.
-                                    Thank you for your patience!
+                                    We couldn't find your registration with the provided phone number. This could mean:
+                                </p>
+                                <ul class="mt-2 text-sm text-yellow-600 list-disc list-inside space-y-1">
+                                    <li>Your registration is still being processed (check back in 12 hours)</li>
+                                    <li>The phone number doesn't match our records</li>
+                                    <li>You haven't registered yet</li>
+                                </ul>
+                                <p class="mt-3 text-sm text-yellow-700 font-medium">
+                                    Need help? Contact us at <a href="mailto:info@eucossa.com" class="underline">info@eucossa.com</a>
                                 </p>
                             </div>
                         </div>
                     </div>
 
                      <!-- Confirmed Status -->
-                     <div id="confirmed-status" class="hidden bg-green-50 border border-green-200 rounded-lg p-4">
+                     <div id="confirmed-status" class="hidden bg-green-50 border border-green-200 rounded-lg p-4 transform opacity-0 transition-all duration-500 ease-out">
                          <div class="flex items-center mb-3">
                              <div class="flex-shrink-0">
                                  <svg class="h-6 w-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -442,27 +469,51 @@
             // Check if phone number is in confirmed list
             const isConfirmed = confirmedRegistrations.includes(cleanPhone);
             
-            // Show status
+            // Show progress indicator first
+            const progressIndicator = document.getElementById('progress-indicator');
             const statusDisplay = document.getElementById('status-display');
             const pendingStatus = document.getElementById('pending-status');
             const confirmedStatus = document.getElementById('confirmed-status');
             
-            statusDisplay.classList.remove('hidden');
+            // Hide any existing status and show progress
+            statusDisplay.classList.add('hidden');
+            progressIndicator.classList.remove('hidden');
             
-            if (isConfirmed) {
-                pendingStatus.classList.add('hidden');
-                confirmedStatus.classList.remove('hidden');
+            // Simulate processing time for better UX
+            setTimeout(() => {
+                // Hide progress indicator
+                progressIndicator.classList.add('hidden');
                 
-                // Store user data for ticket generation
-                window.userData = {
-                    name: fullName,
-                    phone: phoneNumber,
-                    ticketNumber: generateTicketNumber()
-                };
-            } else {
-                confirmedStatus.classList.add('hidden');
-                pendingStatus.classList.remove('hidden');
-            }
+                // Show status with fade-in animation
+                statusDisplay.classList.remove('hidden');
+                
+                if (isConfirmed) {
+                    pendingStatus.classList.add('hidden');
+                    confirmedStatus.classList.remove('hidden');
+                    
+                    // Trigger fade-in animation for confirmed status
+                    setTimeout(() => {
+                        confirmedStatus.classList.remove('opacity-0');
+                        confirmedStatus.classList.add('opacity-100');
+                    }, 50);
+                    
+                    // Store user data for ticket generation
+                    window.userData = {
+                        name: fullName,
+                        phone: phoneNumber,
+                        ticketNumber: generateTicketNumber()
+                    };
+                } else {
+                    confirmedStatus.classList.add('hidden');
+                    pendingStatus.classList.remove('hidden');
+                    
+                    // Trigger fade-in animation for pending status
+                    setTimeout(() => {
+                        pendingStatus.classList.remove('opacity-0');
+                        pendingStatus.classList.add('opacity-100');
+                    }, 50);
+                }
+            }, 1500); // 1.5 second delay for realistic processing feel
         });
 
         // Generate unique ticket number
@@ -616,14 +667,16 @@
                 // Save the PDF
                 doc.save(`Hack-Egerton-2025-Ticket-${window.userData.ticketNumber}.pdf`);
                 
-                // Show success message
+                // Show success message with fade-in animation
                 setTimeout(() => {
                     downloadBtn.innerHTML = originalText;
                     downloadBtn.disabled = false;
                     
-                    // Create and show success message
+                    // Create and show success message with fade-in animation
                     const successMessage = document.createElement('div');
-                    successMessage.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 flex items-center space-x-2';
+                    successMessage.className = 'fixed top-4 right-4 text-white px-6 py-3 rounded-lg shadow-lg z-50 flex items-center space-x-2 transform translate-x-full opacity-0 transition-all duration-500 ease-out';
+                    successMessage.style.backgroundColor = 'rgba(34, 197, 94, 0.3)';
+                    successMessage.style.backdropFilter = 'blur(12px)';
                     successMessage.innerHTML = `
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
@@ -632,9 +685,19 @@
                     `;
                     document.body.appendChild(successMessage);
                     
-                    // Remove success message after 4 seconds
+                    // Trigger fade-in animation
                     setTimeout(() => {
-                        successMessage.remove();
+                        successMessage.classList.remove('translate-x-full', 'opacity-0');
+                        successMessage.classList.add('translate-x-0', 'opacity-100');
+                    }, 50);
+                    
+                    // Remove success message with fade-out animation after 4 seconds
+                    setTimeout(() => {
+                        successMessage.classList.remove('translate-x-0', 'opacity-100');
+                        successMessage.classList.add('translate-x-full', 'opacity-0');
+                        setTimeout(() => {
+                            successMessage.remove();
+                        }, 500);
                     }, 4000);
                 }, 1000);
                 
